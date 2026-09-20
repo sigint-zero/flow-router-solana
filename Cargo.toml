@@ -4,7 +4,7 @@ version = "1.0.0"
 edition = "2021"
 license = "MIT"
 description = "On-chain Solana swap router: N-hop DEX CPIs behind one slippage check and an optional output-token fee"
-repository = "https://github.com/trueoriginlabs/flow-router-solana"
+repository = "https://github.com/sigint-zero/flow-router-solana"
 
 [lib]
 crate-type = ["cdylib", "lib"]

@@ -3,7 +3,7 @@
 On-chain Solana program that executes a swap route of 1 to 5 DEX legs as sequential CPIs inside one
 instruction, enforces a single minimum on the final output, and optionally collects a fee from the
 output token. It is the settlement layer used by
-[flow-trades](https://github.com/trueoriginlabs/flow-trades-solana), which builds the DEX
+[flow-trades](https://github.com/sigint-zero/flow-trades-solana), which builds the DEX
 instructions and wraps them in a router call; any client can do the same.
 
 **Deployments:** `FLoWxxKoBrZtNj5NTPuy1tZcSU6Nnjtz7v5snrrUsNqm` is the first generation (immutable,
@@ -185,7 +185,7 @@ token-account chain, the five fixed accounts, every DEX instruction's accounts i
 program ids, and serialize each DEX instruction into a hop. Intermediate hops should spend what the
 previous hop is guaranteed to deliver at your slippage; `min_amount_out` applies to the route's final
 output only. The reference implementation is `execution/router.rs::wrap_swap` in
-[flow-trades](https://github.com/trueoriginlabs/flow-trades-solana), which also selects the
+[flow-trades](https://github.com/sigint-zero/flow-trades-solana), which also selects the
 first- or second-generation account layout from the program id.
 
 ---
