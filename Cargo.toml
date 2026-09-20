@@ -1,0 +1,35 @@
+[package]
+name = "flow-router"
+version = "1.0.0"
+edition = "2021"
+license = "MIT"
+description = "On-chain Solana swap router: N-hop DEX CPIs behind one slippage check and an optional output-token fee"
+repository = "https://github.com/trueoriginlabs/flow-router-solana"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "flow_router"
+
+[dependencies]
+solana-program = "2.2"
+ed25519-dalek = { version = "2", optional = true }
+rand = { version = "0.8", optional = true }
+serde_json = { version = "1", optional = true }
+
+[features]
+vanity = ["ed25519-dalek", "rand", "serde_json"]
+
+[[bin]]
+name = "vanity"
+path = "src/bin/vanity.rs"
+required-features = ["vanity"]
+
+[dev-dependencies]
+solana-program-test = "2.2"
+solana-sdk = "2.2"
+tokio = { version = "1", features = ["full"] }
+
+[profile.release]
+opt-level = "z"
+lto = true
+strip = true
